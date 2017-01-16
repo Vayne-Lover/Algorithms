@@ -2,17 +2,17 @@
 
 def merge(a,b):
     result=[]
-    new1=a[:]+[float('inf')]
-    new2=b[:]+[float('inf')]
     i=0
     j=0
-    for k in range(0,len(a)+len(b)):
-      if new1[i]<=new2[j]:
-        result.append(new1[i])
+    while i<len(a) and j<len(b):       
+      if a[i]<=b[j]:
+        result.append(a[i])
         i+=1
       else:
-        result.append(new2[j])
+        result.append(b[j])
         j+=1
+    result+=a[i:]
+    result+=b[j:]
     return result
 
 def merge_sort(a):
