@@ -18,21 +18,9 @@ def random_partition(A,p,r):
   return  partition(A,p,r)
 
 def three_median_partition(A,p,r):
-  (a,b,c)=[random.randint(p,r) for _ in range(3)]
-  if a>=b:
-    if c>=a:
-      mid=a
-    elif c>=b:
-      mid=c
-    else:
-      mid=b
-  else:
-    if c>=b:
-      mid=b
-    elif c>=a:
-      mid=c
-    else:
-      mid=a
+  I=[random.randint(p,r) for _ in range(3)]
+  I.sort()
+  mid=I[1]
   A[mid],A[r]=A[r],A[mid]
   return partition(A,p,r)
 
